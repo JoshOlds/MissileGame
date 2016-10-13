@@ -38,7 +38,7 @@ public class TrackCursor : MonoBehaviour
 
             // Smoothly rotate towards the target point.
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
-            gameObject.SendMessage("setCursorPosition", lastTargetPoint, SendMessageOptions.DontRequireReceiver);
+            gameObject.SendMessage("setCursorPosition", lastTargetPoint, SendMessageOptions.DontRequireReceiver); //Sends out messages of cursor position
         }
         
     }

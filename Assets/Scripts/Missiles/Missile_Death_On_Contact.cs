@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Missile_Death_On_Contact : MonoBehaviour {
 
-    public Missile_On_Death deathScript;
+    public float collisionDamage = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -15,19 +15,10 @@ public class Missile_Death_On_Contact : MonoBehaviour {
 	
 	}
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision collision)
     {
-        if(deathScript == null)
-        {
-            deathScript = GetComponent<Missile_On_Death>();
-        }
-        if (deathScript != null)
-        {
-            deathScript.onDeath();
-        }
-        else
-        {
-            Debug.LogError("No onDeath Script found!");
-        }
+        GameObject objectHit = collision.gameObject;
+        objectHit.SendMessage("applyDamage", collisionDamage, SendMessageOptions.DontRequireReceiver);
+        gameObject.SendMessage("onDeath", SendMessageOptions.DontRequireReceiver);
     }
 }

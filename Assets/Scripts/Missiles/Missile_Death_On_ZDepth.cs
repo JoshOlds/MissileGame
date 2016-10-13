@@ -16,18 +16,7 @@ public class Missile_Death_On_ZDepth : MonoBehaviour {
 	void Update () {
 	    if(transform.position.z >= zDepth)
         {
-            if (deathScript == null)
-            {
-                deathScript = GetComponent<Missile_On_Death>();
-            }
-            if (deathScript != null)
-            {
-                deathScript.onDeath();
-            }
-            else
-            {
-                Debug.LogError("No onDeath Script found!");
-            }
+            gameObject.SendMessage("onDeath", SendMessageOptions.DontRequireReceiver);
         }
 	}
 

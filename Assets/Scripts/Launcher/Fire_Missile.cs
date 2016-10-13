@@ -24,7 +24,7 @@ public class Fire_Missile : MonoBehaviour {
         }
 	}
 
-    void setCursorPosition(Vector3 position)
+    void setCursorPosition(Vector3 position) // Receives message from TrackCursor
     {
         cursorPosition = position;
     }

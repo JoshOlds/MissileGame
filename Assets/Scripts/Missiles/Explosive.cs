@@ -29,8 +29,8 @@ public class Explosive : MonoBehaviour
         {
             float distance = Vector3.Distance(col.transform.position, transform.position);
             float damage = maxDamage - (maxDamage * (distance / affectRadius));
+            if(damage < 0) { damage = 0; }
             col.SendMessage("applyDamage", damage, SendMessageOptions.DontRequireReceiver);
-            //Debug.Log("Splodin!");
         }
     }
 

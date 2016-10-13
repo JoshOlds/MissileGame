@@ -4,7 +4,6 @@ using System.Collections;
 public class Missile_On_Death : MonoBehaviour {
 
     public GameObject deathParticle;
-    public float explosionRadius = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +21,4 @@ public class Missile_On_Death : MonoBehaviour {
         gameObject.SendMessage("explode", SendMessageOptions.DontRequireReceiver);
         Destroy(gameObject);
     }
-
-
-
 }
